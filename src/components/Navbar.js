@@ -22,13 +22,8 @@ export default function NavbarComponent({ onToggleSidebar }) {
               </svg>
             </button>
             <a href="/" className="flex ms-2 md:me-24">
-              <img
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="h-6 me-3"
-                alt="Logo"
-              />
               <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
+                Manjo Frontend
               </span>
             </a>
           </div>

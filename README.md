@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Manjo QR Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend untuk integrasi QR API.
+Project ini dibuat menggunakan Create React App.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📦 Setup Project
 
-### `npm start`
+### 1. Install Dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ⚙️ Konfigurasi Environment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Langkah Penting
 
-### `npm run build`
+1. Copy file environment berikut:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Mac / Linux**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+cp .env.development.copy.local .env.development.local
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Windows (PowerShell)**
 
-### `npm run eject`
+```powershell
+copy .env.development.copy.local .env.development.local
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Buka file `.env.development.local` lalu isi sesuai backend:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```env
+REACT_APP_API_KEY=isi_dengan_api_key_backend
+REACT_APP_ROUTE=http://localhost:8080/api/v1/qr
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Keterangan
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* `REACT_APP_API_KEY` → sesuaikan dengan API Key yang ada di backend
+* `REACT_APP_ROUTE` → sesuaikan dengan URL backend
 
-## Learn More
+Contoh:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+REACT_APP_ROUTE=http://localhost:8080/api/v1/qr
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+⚠️ Setelah mengubah file `.env`, pastikan restart server dengan menghentikan `npm start` lalu jalankan kembali.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🚀 Menjalankan Project
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Aplikasi akan berjalan di:
 
-### Making a Progressive Web App
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🏗 Build Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run build
+```
 
-### Deployment
+Hasil build akan berada di folder:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+/build
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ❗ Troubleshooting
+
+Jika `process.env.REACT_APP_ROUTE` atau `REACT_APP_API_KEY` bernilai `undefined`:
+
+* Pastikan file `.env.development.local` berada di root project
+* Pastikan nama variable diawali dengan `REACT_APP_`
+* Restart ulang server dengan `npm start`
